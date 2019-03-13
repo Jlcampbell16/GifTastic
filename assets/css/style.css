@@ -2,11 +2,24 @@
     box-sizing: border-box;
 }
 
+.clearfix:after {
+    content: " "; 
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+
 body {
     background-color: lightgrey;
+    margin: 20px
 
 }
 
+.searchBanner {
+    border: 1px solid black;
+
+}
 h1 {
     text-align: center;
 }
@@ -28,9 +41,30 @@ cursor: pointer;
     text-align: center;
     margin: 0 auto;
     border: 1px, solid, black;
+    padding-top: 10px;
 
 }
 
 #gifForm {
-    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+img.gif, 
+#rating {
+    margin: 0px auto;
+}
+
+.gifInfo {
+    height: 200px;
+    float: left;
+    margin: 15px auto;
+    padding: 10px;
+    text-align: center;
+
+}
+
+#gifView {
+    margin: 0px auto;
 }

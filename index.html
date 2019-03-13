@@ -26,18 +26,21 @@
 </head>
 
 <body>
-    <h1>GifTastic!</h1>
-    <div id=buttons></div>
-    <form id="gifForm">
-        <label for="gifInput"> Search for a Gif</label>
-        <input type="text" id="gifInput">
-        <br>
-        <input id="addGif" type="submit" value="Find more animals!">
-    </form>
+     <h1>GifTastic!</h1>
 
-    <div id="gifView"></div>
+     <div class=searchBanner>
+        <div id=buttons></div>
 
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+        <form id="gifForm">
+            <label for="gifInput"> Search for a New Animal</label>
+            <input type="text" id="gifInput">
+            <input id="addGif" type="submit" value="Show More Animals!">
+        </form>
+    </div>
+
+        <div id="gifView" class="clearfix"></div>
+
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>

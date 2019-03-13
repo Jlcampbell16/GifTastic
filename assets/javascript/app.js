@@ -1,49 +1,43 @@
-//Giphy homework - AJAX 05-09
-//Call the Giphy API and use JavaScript and JQuery to change the HTML 
-//Giphy Parameters - q, limit, rating
-
 // var APIKey = "pUQxAeyd7mmJQpZYgXXUmvzxHWPi1ZD6";
 
-
-
-var topics = ["Puppy", "Kitten", "Koala", "Alpaca"];
-
-
+var topics = ["Giraffe", "Otter", "Puppy", "Turtle", "Porcupine", "Kitten", "Koala", "Alpaca", "Elephant", "Tiger", "Polar Bear", "Goat"];
 
 function displayGif() {
     var gif = $(this).attr("data-name")
-    console.log(this)
+
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=pUQxAeyd7mmJQpZYgXXUmvzxHWPi1ZD6";
 
     $.ajax({
         method: "GET",
         url: queryURL
     }).then(function (response) {
-        console.log(response);
         for (var i = 0; i < 10; i++) {
-            
+
             var gifInfoDiv = $("<div class='gifInfo'></div>");
-        //ADD RATING TO NEW PARAGRAPH
+            //ADD RATING TO NEW PARAGRAPH
             var rating = response.data[i].rating;
-            var ratingText = $("<p>").text("Rating: " + rating);
+            var ratingText = $("<p id='rating'>").text("Rating: " + rating);
             gifInfoDiv.append(ratingText);
-        //ADD GIF TO IMAGE DIV
+
+            //ADD GIF TO IMAGE DIV
             var stillURL = response.data[i].images.fixed_height_still.url;
             var animateURL = response.data[i].images.fixed_height.url;
             var gifImg = $("<img>");
-        //ADD STILLIMAGE, ANIMATES & DATA SOURCE
+            gifInfoDiv.append(gifImg)
+
+            //ADD STILLIMAGE, ANIMATES & DATA SOURCE
             gifImg.attr("src", stillURL);
             gifImg.attr("data-still", stillURL);
             gifImg.attr("data-animate", animateURL);
             gifImg.attr("data-state", "still");
             gifImg.addClass("gif");
 
-            $("#gifView").prepend(gifInfoDiv, gifImg);
+            $("#gifView").prepend(gifInfoDiv);
         };
     });
 };
 
-//PAUSE & ANIMATE
+//pause and animate
 $("#gifView").on("click", ".gif", function () {
     var state = $(this).attr("data-state");
     if (state === "still") {
@@ -69,15 +63,14 @@ function renderButtons() {
     }
 };
 
-
-//on click of button, grab 10 static, non animated gif images and display on the page
+//add a new git button to the page
 $("#addGif").on("click", function (event) {
     event.preventDefault();
     var newGif = $("#gifInput").val().trim();
     topics.push(newGif);
     renderButtons();
+    $("#gifInput").val("");
 });
-
 
 
 $("#buttons").on("click", ".gif", displayGif)
