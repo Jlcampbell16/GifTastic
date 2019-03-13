@@ -21,27 +21,25 @@ function displayGif() {
     }).then(function (response) {
         console.log(response);
         for (var i = 0; i < 10; i++) {
-            //ADD STILLIMAGE, ANIMATES & DATA SOURCE
+            
             var gifInfoDiv = $("<div class='gifInfo'></div>");
-
+        //ADD RATING TO NEW PARAGRAPH
             var rating = response.data[i].rating;
             var ratingText = $("<p>").text("Rating: " + rating);
             gifInfoDiv.append(ratingText);
-
+        //ADD GIF TO IMAGE DIV
             var stillURL = response.data[i].images.fixed_height_still.url;
             var animateURL = response.data[i].images.fixed_height.url;
             var gifImg = $("<img>");
+        //ADD STILLIMAGE, ANIMATES & DATA SOURCE
             gifImg.attr("src", stillURL);
             gifImg.attr("data-still", stillURL);
             gifImg.attr("data-animate", animateURL);
             gifImg.attr("data-state", "still");
             gifImg.addClass("gif");
 
-
-
-
             $("#gifView").prepend(gifInfoDiv, gifImg);
-        }
+        };
     });
 };
 
@@ -54,9 +52,10 @@ $("#gifView").on("click", ".gif", function () {
     } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-    }
+    };
 
 });
+
 //create new buttons for each string in the array
 //loop that appends a button for each string
 function renderButtons() {
@@ -85,10 +84,6 @@ $("#buttons").on("click", ".gif", displayGif)
 renderButtons();
 
 
-
-//on click of still image, gif animate. on click of animate, make still (if/else)
-
-//display the rating for every gif
 
 
 

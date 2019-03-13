@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgrey;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.gif:hoover {
+ background-color: yellow;
+ cursor: pointer;
+ 
+}
+button {
+    margin: 5px;
+}
+
+#addGif:hoover {
+cursor: pointer;
+}
+
+#buttons {
+    text-align: center;
+    margin: 0 auto;
+    border: 1px, solid, black;
+
+}
+
+#gifForm {
+    width: 500px;
+}
