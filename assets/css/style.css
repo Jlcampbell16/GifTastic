@@ -12,16 +12,21 @@
 
 body {
     background-color: lightgrey;
-    margin: 20px
+    margin: 20px;
+    background-size: cover;
+    background-image: url(../images/brickwall-viktor-forgacs-774060-unsplash.jpg)
+
 
 }
 
-.searchBanner {
+/* .searchBanner {
     border: 1px solid black;
 
-}
+} */
 h1 {
     text-align: center;
+    font-family: 'Rock Salt', cursive;
+    font-size: 52px;
 }
 
 .gif:hoover {
@@ -31,16 +36,33 @@ h1 {
 }
 button {
     margin: 5px;
+    background-color: #691921;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
 }
 
-#addGif:hoover {
+#addGif:hoover, 
+input {
 cursor: pointer;
+}
+
+
+input {
+    background-color: lightgray;
+    color: #691921;
+    font-weight: 10px;
+}
+
+
+label { 
+    color: #691921;
 }
 
 #buttons {
     text-align: center;
     margin: 0 auto;
-    border: 1px, solid, black;
+    border: 2px, solid, #691921;
     padding-top: 10px;
 
 }
